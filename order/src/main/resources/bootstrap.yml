@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        namespace: dev
+        group: DEV_GROUP
+        file-extension: yaml
+        # dev命名空间，group为DEV_GROUP, active为dev,后缀yaml
+        # nacos-consumer-dev.yaml
+    sentinel:
+      transport:
+        # dashboard地址
+        dashboard: localhost:8080
+        # 默认8719端口，如果占用，则依次+1
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: localhost:8848
+            dataId: account-service-sentinel
+            groupId: SENTINEL_GROUP
+            data-type: json
+            rule-type: flow
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group

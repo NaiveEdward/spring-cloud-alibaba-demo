@@ -1,0 +1,29 @@
+server:
+  port: 9003
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_account
+    username: seata
+    password: seata
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+feign:
+  hystrix:
+    enabled: false
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
+logging:
+  level:
+    io:
+      seata: info
