@@ -5,3 +5,7 @@
 /order/target/
 /provider/target/
 /storage/target/
+.idea
+.svn
+.DS_Store
+*.iml
